@@ -1,0 +1,3 @@
+https://coursetutorials.notion.site/MySQL-Installation-on-Windows-acec3db643734b5ea8395daeba24ee92
+
+you can go to this url and find how to install mysql to your windows
