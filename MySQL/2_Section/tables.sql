@@ -1,25 +1,36 @@
--- create database school;
-show databases;
--- in order to use this specific database
-use school;
--- to check which database we are on
 select database();
--- creating a table in this database
-create table students
-(
-	username varchar(30), 
-    name varchar(50), 
-    age INT
-);
--- shows existing tables in this database
+
 show tables;
--- shows columns in this table to check for correct form
-show columns from students;
+
 desc students;
-describe students;
 
--- Deleting Tables
--- drop table students;
+-- Inserting values into a table
+insert into students(username, name, age) values("user123", "Elbek", 23);
 
--- Deleting entire database
--- drop database school;
+desc students;
+
+select * from students;
+
+-- inserting multiple values into a table at once
+insert into students(username, name, age) values
+("user1", "Kadir", 22), ("user2", "Elbek", 23), ("user3","Boy",21);
+
+select * from students;
+
+
+
+-- working with not null
+select * from students;
+desc students;
+
+create table people
+(
+	name varchar(50) not null, 
+    age int not null
+);
+
+show tables;
+desc people;
+
+insert into people(name, age) values("Kadir", 22);
+select * from people;
