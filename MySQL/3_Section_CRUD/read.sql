@@ -1,4 +1,30 @@
+CREATE DATABASE animals;
+use animals;
 
+-- Create the new cats table:
+
+CREATE TABLE cats (
+    cat_id INT AUTO_INCREMENT,
+    name VARCHAR(100),
+    breed VARCHAR(100),
+    age INT,
+    PRIMARY KEY (cat_id)
+); 
+-- Insert some cats:
+
+INSERT INTO cats(name, breed, age) 
+VALUES ('Ringo', 'Tabby', 4),
+       ('Cindy', 'Maine Coon', 10),
+       ('Dumbledore', 'Maine Coon', 11),
+       ('Egg', 'Persian', 4),
+       ('Misty', 'Tabby', 13),
+       ('George Michael', 'Ragdoll', 9),
+       ('Jackson', 'Sphynx', 7);
+       
+       
+-- * means give me all columns, * stands for all, here give me all columns from cats      
+select * from cats;
+-- we can narrow down what we want to select
 -- we can choose specific column names from our table and mention them to provide their row values
 select name from cats;
 select breed from cats;
