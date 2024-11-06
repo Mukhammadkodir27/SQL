@@ -79,3 +79,12 @@ SELECT SUBSTRING(title, 1, 15) from books;
 -- lets get the first letters of names from names columnd in books table
 SELECT SUBSTR(author_fname, 1, 1) FROM books;
 SELECT SUBSTR(author_fname, 1, 1) AS first_letter, author_fname AS names FROM books;
+
+
+-- Combining String Functions
+-- CONCAT + SUBSTRING
+SELECT CONCAT(SUBSTR(title, 1, 10), '...') AS short_title from books;
+SELECT CONCAT(SUBSTR(author_fname, 1, 1), '.', SUBSTR(author_lname, 1, 1), '.') AS author_initials FROM books;
+-- A.S.
+-- J.D.	
+-- W.F.	
