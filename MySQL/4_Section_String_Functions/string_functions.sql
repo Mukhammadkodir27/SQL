@@ -55,11 +55,27 @@ select concat_ws(' ', title, author_fname, author_lname) as description_with_whi
 
 
 
+-- SUBSTRING
+-- working with parts of strings
+-- The SUBSTRING() function extracts some characters from a string. Syntax:
+-- SUBSTRING(string, start, length)
+-- SUBSTRING("String", 2, 3)
+-- SUBSTRING("String" FROM 2 FOR 3)
+-- as you can see there is no comma in between while using FROM and FOR keywords inside the function, but if no then use comma as a separator
+SELECT SUBSTRING("Quadratically", 5);
+SELECT SUBSTRING("foobarbar" FROM 4);
+SELECT SUBSTRING('Quadratically', 5, 6);
+SELECT SUBSTRING('Sakila', -3);
+SELECT SUBSTRING('Sakila', -5, 3);
+SELECT SUBSTRING('Sakila' FROM -4 FOR 2);
 
+-- in SQL indexing starts form 1 not 0
+-- using SUBSTRING() function in our books table
+SELECT SUBSTRING(title, 1, 15) from books;
+-- title refers to the column name where we stored our text, in books table
 
-
-
-
-
-
-
+-- SUBSTR() also works
+-- if SUBSTRING() is just too much typing, you can use SUBSTR() instead
+-- lets get the first letters of names from names columnd in books table
+SELECT SUBSTR(author_fname, 1, 1) FROM books;
+SELECT SUBSTR(author_fname, 1, 1) AS first_letter, author_fname AS names FROM books;
