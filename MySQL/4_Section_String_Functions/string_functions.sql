@@ -88,3 +88,100 @@ SELECT CONCAT(SUBSTR(author_fname, 1, 1), '.', SUBSTR(author_lname, 1, 1), '.') 
 -- A.S.
 -- J.D.	
 -- W.F.	
+
+
+-- REPLACE
+-- replace parts of strings
+/*	By using those string functions we are not updating, we are not updating our tables at all.
+We are simply displaying or selecting information and changing the way that information looks after we remove it or we select it from the database, 
+but our data is completely unchanged. Replace does not change the actual content of our table.	*/
+-- REPLACE(string, from_string, to_string)
+SELECT REPLACE('www.mysql.com', 'w', 'Ww');
+SELECT REPLACE('Hello World', 'Hello', 'Hi');
+-- lets use replace in our table
+SELECT REPLACE(title, ' ', '-') FROM books;
+
+
+-- REVERSE
+SELECT REVERSE("Hello World");
+-- Syntax: REVERSE(str)
+SELECT REVERSE(author_fname) FROM books;
+SELECT CONCAT(author_fname, REVERSE(author_fname)) FROM books;
+-- TommoT
+-- DaveevaD
+-- EvaavE
+
+
+-- CHAR_LENGTH
+-- counts characters in string
+SELECT CHAR_LENGTH('Hello World');
+-- 11
+-- CHAR_LENGTH() function returns the number of characters in its argument.
+-- LENGTH() function returns the length of a string in bytes(not the number of characters)
+SELECT CHAR_LENGTH(title) FROM books;
+SELECT CHAR_LENGTH(author_fname) FROM books;
+SELECT CHAR_LENGTH(title) AS len, title FROM books;
+
+
+
+-- UPPER() and LOWER() 
+-- UCASE() and LCASE()
+-- change a string's case
+select upper("Hello World");
+select lower("Hello World");
+select ucase("Hello World");
+select lcase("Hello World");
+
+select upper(title) from books;
+select lower(title) from books;
+select concat("I love ", upper(title), " !!!") from books;
+
+
+
+-- INSERT
+-- Syntax: INSERT(str, position, len, new_str)
+select insert('Quadratic', 3, 4, 'What');
+select insert('Quadratic', -1, 4, 'What');
+select insert('Quadratic', 3, 100, 'What');
+select insert('Hello Bobby', 6, 0, ' There');
+select insert('Hello Bobby', 6, 4, ' There');
+select insert('Hello Bobby', 6, 6, 'There');
+
+
+
+-- INSTR
+-- Syntax: INSTR(str, substr) 
+-- in string, this function returns the position of the first occurance of substring substr in string str.
+select instr('foobarbar', 'bar');
+
+
+
+-- LEFT
+-- LEFT(str, len)
+-- Returns the leftmost len characters from the string str, or NULL if any argument is NULL
+select left('foobarbar', 5);
+-- RIGHT
+-- RIGHT(str, len)
+-- Returns the rightmost len characters from the string str, or NULL if any argument is NULL
+select right('foobarbar', 5);
+-- in our table:
+select left(author_fname, 1) from books;
+select concat(left(author_fname, 1), '.', left(author_lname, 1), '.') from books;
+select right(title, 15) from books;
+
+
+
+-- REPEAT
+-- REPEAT(str, count)
+-- Returns a string consisting of the string str repeated count times. If count is less than 1, like 0, returns an empty string.
+select repeat('Hello', 5);		
+select repeat(author_fname, 3) from books;
+
+
+
+
+-- TRIM
+select trim('         bar	');
+select trim(leading '-' from '------bar--------');
+select trim(both '-' from '--------bar---------');
+select trim(trailing '-' from '------bar--------');
